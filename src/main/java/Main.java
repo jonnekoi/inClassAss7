@@ -68,16 +68,16 @@ public class Main {
 
         trainingSessionDAO.getTrainingSessionsByLocation("Dojo 1");
 
-
         //Search instructor by more than 5 years of experience
 
         instructorDAO.getInstructorsByExperience(5);
 
+        // Update student
         student1.setName("patrik");
         student1.setRank("Black belt");
 
+        // Save updated student
         studentDAO.save(student1);
-
 
         // Close the EntityManager and EntityManagerFactory
         em.close();
