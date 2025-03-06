@@ -1,6 +1,9 @@
 package model;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,6 +20,12 @@ public class Instructor {
     @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
     private List<TrainingSession> trainingSessions;
 
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
     public Instructor() {}
 
     public Instructor(String name, String specialization, int experienceYears) {
@@ -25,8 +34,16 @@ public class Instructor {
         this.experienceYears = experienceYears;
     }
 
-    public boolean getName() {
-        return name != null;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = createdAt;
+    }
+
+
+    public String getName() {
+        return name;
     }
 
     public Object getSpecialization() {

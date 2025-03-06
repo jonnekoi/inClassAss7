@@ -18,6 +18,9 @@ public class Student {
     private String rank;
     private LocalDate joinDate;
 
+    @Version
+    private int version;
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
