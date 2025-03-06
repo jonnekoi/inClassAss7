@@ -32,7 +32,7 @@ public class Student {
 
     @ManyToMany
     @JoinTable(
-            name = "training_session_students", // This is the join table
+            name = "training_session_students",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "training_session_id")
     )

@@ -73,6 +73,10 @@ public class Main {
 
         instructorDAO.getInstructorsByExperience(5);
 
+        student1.setName("patrik");
+        student1.setRank("Black belt");
+
+        studentDAO.save(student1);
 
 
         // Close the EntityManager and EntityManagerFactory
